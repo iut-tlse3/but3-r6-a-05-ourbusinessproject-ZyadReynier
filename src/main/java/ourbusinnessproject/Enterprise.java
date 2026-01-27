@@ -10,7 +10,7 @@ import jakarta.validation.constraints.*;
 public class Enterprise {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @NotBlank
     private String Name;
@@ -91,5 +91,9 @@ public class Enterprise {
      */
     public String getName() {
         return Name;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

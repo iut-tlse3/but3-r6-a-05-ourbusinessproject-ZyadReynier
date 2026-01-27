@@ -1,10 +1,12 @@
 package ourbusinnessproject;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import static org.apache.coyote.http11.Constants.a;
 
 @Entity
 public class Enterprise {
@@ -25,8 +27,11 @@ public class Enterprise {
     @Email
     private String ContactEmail;
 
-    public Enterprise(){
 
+    @OneToMany(mappedBy = "enterprise")
+    private Collection<Project> projects;
+
+    public Enterprise(){
     }
 
     /**
@@ -95,5 +100,18 @@ public class Enterprise {
 
     public Long getId() {
         return id;
+    }
+
+    public Collection<Project> getProjects() {
+        return projects;
+    }
+
+    public void addProject(Project p){
+        if(this.projects == null){
+            projects = new ArrayList<>();
+            projects.add(p);
+        } else {
+            projects.add(p);
+        }
     }
 }

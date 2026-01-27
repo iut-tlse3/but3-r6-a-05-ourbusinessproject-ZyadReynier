@@ -31,6 +31,7 @@ public class EnterpriseProjectService {
         aproject.setEnterprise(enterprise);
         entm.persist(aproject);
         entm.flush();
+        enterprise.addProject(aproject);
         return aproject;
     }
 

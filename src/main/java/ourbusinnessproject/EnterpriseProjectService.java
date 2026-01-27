@@ -24,10 +24,11 @@ public class EnterpriseProjectService {
      * @param aDescription the description of the new project
      * @return the created project
      */
-    public Project newProject(String aTitle, String aDescription) {
+    public Project newProject(String aTitle, String aDescription,Enterprise enterprise) {
         Project aproject = new Project();
         aproject.setTitle(aTitle);
         aproject.setDescription(aDescription);
+        aproject.setEnterprise(enterprise);
         entm.persist(aproject);
         entm.flush();
         return aproject;

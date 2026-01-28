@@ -98,14 +98,26 @@ public class Enterprise {
         return Name;
     }
 
+    /**
+     *
+     * @return the id of the Enterprise
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @return the collection of project linked with the Enterprise
+     */
     public Collection<Project> getProjects() {
         return projects;
     }
 
+    /**
+     * Add a project to link with the Enterprise
+     * @param p the project to add
+     */
     public void addProject(Project p){
         if(this.projects == null){
             projects = new ArrayList<>();

@@ -3,10 +3,9 @@ package ourbusinnessproject;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
-import static org.apache.coyote.http11.Constants.a;
 
 @Entity
 public class Enterprise {
@@ -120,7 +119,7 @@ public class Enterprise {
      */
     public void addProject(Project p){
         if(this.projects == null){
-            projects = new ArrayList<>();
+            projects = new HashSet<>();
             projects.add(p);
         } else {
             projects.add(p);

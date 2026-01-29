@@ -2,8 +2,6 @@ package ourbusinnessproject;
 
 import jakarta.persistence.*;
 import org.springframework.stereotype.Service;
-
-import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -82,6 +80,10 @@ public class EnterpriseProjectService {
         return entm.find(Enterprise.class,anId);
     }
 
+    /**
+     *
+     * @return une liste de tous les projets
+     */
     public List<Project> findAllProjects() {
         String query = "SELECT p FROM Project p ORDER BY p.title" ;
         TypedQuery<Project> queryObj = entm.createQuery(query, Project.class);

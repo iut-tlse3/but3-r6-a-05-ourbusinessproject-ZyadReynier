@@ -1,19 +1,25 @@
 package ourbusinnessproject;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
-@Component
+@Entity
 public class Partnership {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @NotNull
     private Date datecrea;
     @NotNull
+    @OneToOne
     private Enterprise enterprise;
     @NotNull
+    @OneToOne
     private Project project;
 
     /**
@@ -38,5 +44,21 @@ public class Partnership {
      */
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public Object getId() {
+        return id;
+    }
+
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public Object getCreationDate() {
+        return datecrea;
     }
 }

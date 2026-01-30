@@ -85,7 +85,7 @@ public class EnterpriseProjectService {
      * @return une liste de tous les projets
      */
     public List<Project> findAllProjects() {
-        String query = "SELECT p FROM Project p ORDER BY p.title" ;
+        String query = "SELECT p FROM Project p JOIN p.enterprise" ;
         TypedQuery<Project> queryObj = entm.createQuery(query, Project.class);
         return queryObj.getResultList();
     }

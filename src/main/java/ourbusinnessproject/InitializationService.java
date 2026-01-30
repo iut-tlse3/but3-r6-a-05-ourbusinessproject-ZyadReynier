@@ -18,6 +18,11 @@ public class InitializationService {
     private Project project3;
     @Transactional
     public void initProjects() {
+        /*
+        * 3.4 Quand le dernier projet n'était pas valide aucuns des autres projets n'a été créé car
+        * l'annotation @Transactionnal fait en sorte que cette méthode "rollback" pour n'importe
+        * quelle erreur ce qui permet d'assurer la coherence de la base de données.
+        * */
         enterprise1 =enterpriseProjectService.newEnterprise("Company & Co","Comp description","Paul Durand","paul@compco.com");
         enterprise2 =enterpriseProjectService.newEnterprise("Company & Co2","Comp description2","Paul Durand2","paul2@compco.com");
         project1 = enterpriseProjectService.newProject("_p1", "p1 description", enterprise1);
